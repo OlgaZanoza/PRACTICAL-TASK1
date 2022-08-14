@@ -1,75 +1,59 @@
-﻿
-/*
-Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
-
-a = 5; b = 7 -> max = 7
-a = 2 b = 10 -> max = 10
-a = -9 b = -3 -> max = -3
+﻿/*
+Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+456 -> 5
+782 -> 8
+918 -> 1
 
 */
 
-Console.WriteLine("Ввести 2 числа, чтобы узнать какое большее, а какое меньшее.");
-Console.Write("Введите первое число: ");
-int number1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число: ");
-int number2 = Convert.ToInt32(Console.ReadLine());
-if (number1 > number2)
-{
-    Console.WriteLine("Число " + number1 + " больше");
-    Console.Write("Число " + number2 + " меньше");
+
+Console.Write("Ввести трёхзначное число: ");
+int threeDigitNumber = Convert.ToInt32(Console.ReadLine());
+string stringNumber = Convert.ToString(threeDigitNumber);
+Console.WriteLine("вторая цифра числа -> "+stringNumber[1]);
+
+
+
+/* 
+Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+645 -> 5
+78 -> третьей цифры нет
+32679 -> 6
+*/
+
+
+Console.Write("Введи число: ");
+int anyNumber = Convert.ToInt32(Console.ReadLine());
+string anyNumberText = Convert.ToString(anyNumber);
+if (anyNumberText.Length > 2){
+  Console.WriteLine("третья цифра -> " + anyNumberText[2]);
 }
-else if (number1 == number2)
+else {
+  Console.WriteLine("-> третьей цифры нет");
+}
+
+
+
+/*
+Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+6 -> да
+7 -> да
+1 -> нет
+*/
+
+Console.Write("Ввести цифру, обозначающую день недели: "); 
+int dayWeek = Convert.ToInt32(Console.ReadLine());
+
+if (dayWeek == 6 || dayWeek == 7)
 {
-    Console.WriteLine("Число " + number1 + " равно числу " + number2);
+    Console.WriteLine("{0} -> выходной", dayWeek);
+}
+else if (dayWeek >= 1 & dayWeek <= 5)
+{
+    Console.WriteLine("{0} -> не выходной", dayWeek);
 }
 else
 {
-    Console.WriteLine("Число " + number2 + " больше");
-    Console.Write("Число " + number1 + " меньше");
-
-} 
-
-
-/*
-Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
-
-2, 3, 7 -> 7
-44 5 78 -> 78
-22 3 9 -> 22
-*/
-
-Console.WriteLine("Ввести три числа, и узнать, какое из них имеет максимальное значение.");
-
-Console.Write("Ввести первое число и нажать ENTER: ");
-int number1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число и нажмите ENTER: ");
-int number2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите третье число и нажмите ENTER: ");
-int number3 = Convert.ToInt32(Console.ReadLine());
-int maxnumber= 0;
-if (number1 > maxnumber) maxnumber = number1;
-if (number2 > maxnumber) maxnumber = number2;
-if (number3 > maxnumber) maxnumber = number3;
-Console.Write("Максимальное значение имеет число " + maxnumber);
-
-
-
-/*Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
-4 -> да
--3 -> нет
-7 -> нет
-*/
-
-Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int remain = number % 2;
-if (remain == 0)
-{
-    Console.WriteLine("Число " + number + " четное?");
-    Console.WriteLine("ДА!");
+    Console.WriteLine("{0} -> дня недели с такой цифрой нет", dayWeek);
 }
-else
-{
-    Console.WriteLine("Число " + number + " четное?");
-    Console.WriteLine("НЕТ!");
-}
+
